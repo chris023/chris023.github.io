@@ -52,8 +52,8 @@ const styles = theme => ({
   },
   button: {
     backgroundColor: theme.palette.primary.light,
-    borderColor: '#42dbff',
-    color: '#42dbff',
+    borderColor: theme.palette.secondary.main,
+    color: theme.palette.secondary.main,
     letterSpacing: 2,
     marginTop: theme.spacing.unit * 4,
   },
