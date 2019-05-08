@@ -2,9 +2,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Button, Paper, Typography, withStyles } from '@material-ui/core'
-import bgvid from '../../assets/bgvid.webm'
-import coffeeLaptopOnlyImg from '../../assets/coffee-laptop-only.png'
-import backgroundImg from '../../assets/landing-bg.jpg'
+import bgvid from '../../assets/media/bgvid.webm'
+import coffeeLaptopOnlyImg from '../../assets/img/coffee-laptop-only.png'
+import backgroundImg from '../../assets/img/landing-bg.jpg'
 
 const styles = theme => ({
   root: {
