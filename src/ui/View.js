@@ -10,11 +10,7 @@ import {
 import MenuIcon from '@material-ui/icons/Menu'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 
-const styles = () => ({
-  drawer: {
-    width: 240,
-  },
-})
+const styles = () => ({})
 
 const View = ({ classes }) => {
   const [open, setOpen] = useState(false)
