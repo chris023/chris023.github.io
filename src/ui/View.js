@@ -10,15 +10,11 @@ import {
 import MenuIcon from '@material-ui/icons/Menu'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 
-const styles = theme => {
-  // eslint-disable-next-line no-console
-  console.log(theme)
-  return {
-    drawer: {
-      width: 240,
-    },
-  }
-}
+const styles = () => ({
+  drawer: {
+    width: 240,
+  },
+})
 
 const View = ({ classes }) => {
   const [open, setOpen] = useState(false)
