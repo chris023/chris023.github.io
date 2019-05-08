@@ -1,5 +1,5 @@
-import { compose } from 'react-redux'
-import { createStore } from 'react-redux'
+import { compose } from 'redux'
+import { createStore } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import rootReducer from './reducers'
