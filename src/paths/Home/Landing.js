@@ -39,7 +39,7 @@ const styles = theme => ({
   bgvid: {
     backgroundColor: theme.palette.background.paper,
     backgroundSize: 'cover',
-    filter: 'opacity(.6)',
+    filter: 'opacity(.5)',
     height: 'auto',
     left: '50%',
     minWidth: '100%',
