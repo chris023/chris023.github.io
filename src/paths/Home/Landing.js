@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Paper, Typography, withStyles } from '@material-ui/core'
+import { Button, Paper, Typography, withStyles } from '@material-ui/core'
 import bgvid from '../../assets/bgvid.webm'
 
 const styles = theme => ({
@@ -24,15 +24,26 @@ const styles = theme => ({
     backgroundSize: 'cover',
     zIndex: -10,
   },
+  button: {
+    backgroundColor: theme.palette.primary.light,
+    borderColor: '#0fc7ac',
+    color: '#0fc7ac',
+    letterSpacing: 2,
+    marginTop: theme.spacing.unit * 4,
+  },
   content: {
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
     height: '100%',
   },
   title: {
     fontFamily: 'Coolvetica',
+  },
+  titleContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    paddingLeft: theme.spacing.unit * 4,
   },
 })
 
@@ -43,17 +54,23 @@ const Landing = ({ classes }) => {
         <source src={bgvid} type="video/webm" />
       </video>
       <div className={classes.content}>
-        <div>
-          <Typography variant="h2" className={classes.title}>
-            Hi,
-          </Typography>
-          <Typography variant="h2" className={classes.title}>
-            I'm Chris,
-          </Typography>
-          <Typography variant="h2" className={classes.title}>
-            web developer.
-          </Typography>
+        <div className={classes.titleContainer}>
+          <div>
+            <Typography variant="h2" className={classes.title}>
+              Hi,
+            </Typography>
+            <Typography variant="h2" className={classes.title}>
+              I'm Chris,
+            </Typography>
+            <Typography variant="h2" className={classes.title}>
+              web developer.
+            </Typography>
+            <Button variant="outlined" className={classes.button}>
+              Contact Me
+            </Button>
+          </div>
         </div>
+        <div />
       </div>
     </Paper>
   )
