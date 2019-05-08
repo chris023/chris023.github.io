@@ -83,12 +83,12 @@ const Landing = ({ classes }) => {
   return (
     <>
       <div
-        style={{ backgroundImage: `url(${coffeeLaptopOnlyImg})` }}
-        className={classes.backgroundImage}
-      />
-      <div
         style={{ backgroundImage: `url(${backgroundImg})` }}
         className={`${classes.backgroundImage} ${classes.backgroundImageFull}`}
+      />
+      <div
+        style={{ backgroundImage: `url(${coffeeLaptopOnlyImg})` }}
+        className={classes.backgroundImage}
       />
       <Paper square className={classes.root}>
         <video playsInline autoPlay muted loop className={classes.bgvid}>
