@@ -4,14 +4,15 @@ import { Paper, Typography, withStyles } from '@material-ui/core'
 
 const styles = theme => ({
   root: {
+    boxSizing: 'border-box',
+    height: 'calc(100vh - 64px)',
     padding: theme.spacing.unit * 4,
-    height: '100%',
   },
 })
 
 const Landing = ({ classes }) => {
   return (
-    <Paper className={classes.root}>
+    <Paper square className={classes.root}>
       <Typography variant="h2">Hi,</Typography>
       <Typography variant="h2">I'm Chris</Typography>
     </Paper>
