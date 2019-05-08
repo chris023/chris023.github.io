@@ -30,7 +30,6 @@ module.exports = {
 
     'prettier/prettier': 'error',
 
-    // 'react/jsx-no-bind': 'error',
     'react/prefer-stateless-function': 'error'
   }
 }
