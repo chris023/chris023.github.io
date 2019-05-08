@@ -31,6 +31,9 @@ const styles = theme => ({
     justifyContent: 'center',
     height: '100%',
   },
+  title: {
+    fontFamily: 'Coolvetica',
+  },
 })
 
 const Landing = ({ classes }) => {
@@ -41,9 +44,15 @@ const Landing = ({ classes }) => {
       </video>
       <div className={classes.content}>
         <div>
-          <Typography variant="h2">Hi,</Typography>
-          <Typography variant="h2">I'm Chris,</Typography>
-          <Typography variant="h2">web developer.</Typography>
+          <Typography variant="h2" className={classes.title}>
+            Hi,
+          </Typography>
+          <Typography variant="h2" className={classes.title}>
+            I'm Chris,
+          </Typography>
+          <Typography variant="h2" className={classes.title}>
+            web developer.
+          </Typography>
         </div>
       </div>
     </Paper>
