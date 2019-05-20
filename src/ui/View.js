@@ -5,6 +5,7 @@ import {
   Divider,
   Drawer,
   IconButton,
+  Link,
   List,
   ListItem,
   ListItemIcon,
@@ -70,6 +71,9 @@ const styles = theme => ({
   },
   linkTo: {
     textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'none',
+    },
   },
   menuButton: {
     marginLeft: 5,
