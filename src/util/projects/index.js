@@ -20,5 +20,11 @@ export const movietracker = {
   name: 'Movie Tracker',
   liveUrl: 'https://chris023.github.io/movie-tracker-frontend',
   gitUrl: '',
-  icon: <LocalMoviesIcon />,
+  icon: (
+    <LocalMoviesIcon
+      style={{
+        color: '#42dbff',
+      }}
+    />
+  ),
 }
