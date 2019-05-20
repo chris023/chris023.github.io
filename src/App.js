@@ -1,5 +1,4 @@
 import React from 'react'
-// eslint-disable-next-line no-unused-vars
 import { withRouter, Redirect, Route, Switch } from 'react-router-dom'
 import Home from './paths/Home'
 import UserInterface from './ui'
