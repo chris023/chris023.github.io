@@ -68,14 +68,17 @@ const styles = theme => ({
     }),
   },
   drawerSubtitleVisible: {
+    boxSizing: 'border-box',
     padding: `${theme.spacing.unit * 1}px ${theme.spacing.unit * 4}px`,
-    transition: theme.transitions.duration.leavingScreen,
+    transition: `${theme.transitions.duration.enteringScreen}ms`,
     opacity: 1,
+    height: 37,
   },
   drawerSubtitle: {
-    display: 'none',
+    boxSizing: 'border-box',
+    height: 0,
     opacity: 0,
-    transition: theme.transitions.duration.leavingScreen,
+    transition: `${theme.transitions.duration.enteringScreen}ms`,
   },
   hide: {
     display: 'none',
@@ -153,7 +156,7 @@ const View = ({ classes, children, open, setOpen }) => {
               <ChevronLeftIcon />
             </IconButton>
           </div>
-          <List>
+          <List className={classes.list}>
             <Typography
               className={
                 open ? classes.drawerSubtitleVisible : classes.drawerSubtitle
@@ -217,14 +220,6 @@ const View = ({ classes, children, open, setOpen }) => {
                 </ListItem>
               </a>
             ))}
-            <Typography
-              className={
-                open ? classes.drawerSubtitleVisible : classes.drawerSubtitle
-              }
-              color="textSecondary"
-            >
-              {' '}
-            </Typography>
           </List>
           <Divider />
           <List>
