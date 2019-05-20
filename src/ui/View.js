@@ -171,6 +171,7 @@ const View = ({ classes, children }) => {
               <ListItemIcon>
                 <img
                   className={classes.swapiBoxIcon}
+                  alt="SW"
                   src="https://raw.githubusercontent.com/chris023/swapibox/master/src/assets/readme/logo.png"
                 />
               </ListItemIcon>
