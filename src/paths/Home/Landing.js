@@ -91,7 +91,7 @@ const Landing = ({ classes, setOpen }) => {
         style={{ backgroundImage: `url(${coffeeLaptopOnlyImg})` }}
         className={classes.backgroundImage}
       />
-      <div square className={classes.root}>
+      <div className={classes.root}>
         <video playsInline autoPlay muted loop className={classes.bgvid}>
           <source src={bgvid} type="video/webm" />
         </video>
