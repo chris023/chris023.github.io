@@ -8,7 +8,7 @@ Live: <none>
 
 This is a personal website designed to showcase previous projects and tools I am familiar with.  Work In Progress.
 
-## Instructions To Install
+## Instructions To Install (Why?)
 Download and extract zip then navigate to extracted directory:
 ```console
 foo@bar: ~/$ git clone https://github.com/chris023/personal-site.git
