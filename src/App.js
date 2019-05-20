@@ -4,13 +4,12 @@ import Home from './paths/Home'
 import UserInterface from './ui'
 
 const App = () => (
-  <>
-    <Route path="/" component={UserInterface} />
+  <UserInterface>
     <Switch>
       <Route exact path="/home" component={Home} />
       <Redirect to="/home" />
     </Switch>
-  </>
+  </UserInterface>
 )
 
 export default withRouter(App)

@@ -68,7 +68,7 @@ const styles = theme => ({
   },
 })
 
-const View = ({ classes }) => {
+const View = ({ classes, children }) => {
   const [open, setOpen] = useState(false)
   const toggleDrawer = () => setOpen(prev => !prev)
 
@@ -133,12 +133,14 @@ const View = ({ classes }) => {
           ))}
         </List>
       </Drawer>
+      {children}
     </>
   )
 }
 
 View.propTypes = {
   classes: PropTypes.object,
+  children: PropTypes.node,
 }
 
 export default withStyles(styles)(View)
