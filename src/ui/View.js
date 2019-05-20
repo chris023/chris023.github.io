@@ -171,7 +171,7 @@ const View = ({ classes, children, open, setOpen }) => {
                 className={classes.linkTo}
                 key={title + i}
               >
-                <ListItem button>
+                <ListItem button disabled={i === 1}>
                   <ListItemIcon>
                     <>
                       {i === 0 ? <HomeIcon /> : null}
