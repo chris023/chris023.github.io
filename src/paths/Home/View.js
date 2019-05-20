@@ -12,16 +12,17 @@ const styles = theme => ({
   },
 })
 
-const View = ({ classes }) => {
+const View = ({ classes, setOpen }) => {
   return (
     <div className={classes.root}>
-      <Landing />
+      <Landing setOpen={setOpen} />
     </div>
   )
 }
 
 View.propTypes = {
   classes: PropTypes.object,
+  setOpen: PropTypes.func,
 }
 
 export default withStyles(styles)(View)

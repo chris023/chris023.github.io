@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import {
   AppBar,
@@ -90,8 +90,7 @@ const styles = theme => ({
   },
 })
 
-const View = ({ classes, children }) => {
-  const [open, setOpen] = useState(false)
+const View = ({ classes, children, open, setOpen }) => {
   const toggleDrawer = () => setOpen(prev => !prev)
 
   return (
@@ -193,6 +192,8 @@ const View = ({ classes, children }) => {
 View.propTypes = {
   classes: PropTypes.object,
   children: PropTypes.node,
+  open: PropTypes.bool,
+  setOpen: PropTypes.func,
 }
 
 export default withStyles(styles)(View)

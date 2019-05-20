@@ -1,7 +1,6 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Paper, Typography, withStyles } from '@material-ui/core'
+import { Button, Typography, withStyles } from '@material-ui/core'
 import bgvid from '../../assets/media/bgvid.webm'
 import coffeeLaptopOnlyImg from '../../assets/img/coffee-laptop-only.png'
 import backgroundImg from '../../assets/img/landing-bg.jpg'
@@ -79,7 +78,9 @@ const styles = theme => ({
   },
 })
 
-const Landing = ({ classes }) => {
+const Landing = ({ classes, setOpen }) => {
+  const openDrawer = () => setOpen(true)
+
   return (
     <>
       <div
@@ -101,13 +102,17 @@ const Landing = ({ classes }) => {
                 Hi,
               </Typography>
               <Typography variant="h2" className={classes.title}>
-                I'm <span className={classes.textDecoration}>Chris</span>,
+                {`I'm`} <span className={classes.textDecoration}>Chris</span>,
               </Typography>
               <Typography variant="h2" className={classes.title}>
                 web developer.
               </Typography>
-              <Button variant="outlined" className={classes.button}>
-                Contact Me
+              <Button
+                variant="outlined"
+                className={classes.button}
+                onClick={openDrawer}
+              >
+                My Projects
               </Button>
             </div>
           </div>
@@ -120,6 +125,7 @@ const Landing = ({ classes }) => {
 
 Landing.propTypes = {
   classes: PropTypes.object,
+  setOpen: PropTypes.func,
 }
 
 export default withStyles(styles)(Landing)
