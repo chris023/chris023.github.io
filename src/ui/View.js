@@ -32,6 +32,9 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
+  content: {
+    display: 'flex',
+  },
   drawer: {
     backgroundColor: theme.palette.background.paper,
     flexShrink: 0,
@@ -110,77 +113,79 @@ const View = ({ classes, children }) => {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer
-        className={classNames(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: classNames({
+      <div className={classes.content}>
+        <Drawer
+          className={classNames(classes.drawer, {
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open,
-          }),
-        }}
-        variant="permanent"
-        open={open}
-      >
-        <div className={classes.toolbar}>
-          <IconButton onClick={toggleDrawer}>
-            <ChevronLeftIcon />
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          <ListItem button>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Home'} />
-          </ListItem>
-        </List>
-        <Divider />
-        <List>
-          <Typography
-            className={
-              open ? classes.drawerSubtitleVisible : classes.drawerSubtitle
-            }
-            color="textSecondary"
-          >
-            Projects
-          </Typography>
-          <a
-            href="https://chris023.github.io/movie-tracker-frontend"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={classes.linkTo}
-          >
+          })}
+          classes={{
+            paper: classNames({
+              [classes.drawerOpen]: open,
+              [classes.drawerClose]: !open,
+            }),
+          }}
+          variant="permanent"
+          open={open}
+        >
+          <div className={classes.toolbar}>
+            <IconButton onClick={toggleDrawer}>
+              <ChevronLeftIcon />
+            </IconButton>
+          </div>
+          <Divider />
+          <List>
             <ListItem button>
               <ListItemIcon>
-                <LocalMoviesIcon className={classes.movieTrackerIcon} />
+                <HomeIcon />
               </ListItemIcon>
-              <ListItemText primary={'Movie Tracker'} />
+              <ListItemText primary={'Home'} />
             </ListItem>
-          </a>
-          <a
-            href="https://chris023.github.io/swapibox"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={classes.linkTo}
-          >
-            <ListItem button>
-              <ListItemIcon>
-                <img
-                  className={classes.swapiBoxIcon}
-                  alt="SW"
-                  src="https://raw.githubusercontent.com/chris023/swapibox/master/src/assets/readme/logo.png"
-                />
-              </ListItemIcon>
-              <ListItemText primary={'SWAPIbox'} />
-            </ListItem>
-          </a>
-        </List>
-      </Drawer>
-      {children}
+          </List>
+          <Divider />
+          <List>
+            <Typography
+              className={
+                open ? classes.drawerSubtitleVisible : classes.drawerSubtitle
+              }
+              color="textSecondary"
+            >
+              Projects
+            </Typography>
+            <a
+              href="https://chris023.github.io/movie-tracker-frontend"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.linkTo}
+            >
+              <ListItem button>
+                <ListItemIcon>
+                  <LocalMoviesIcon className={classes.movieTrackerIcon} />
+                </ListItemIcon>
+                <ListItemText primary={'Movie Tracker'} />
+              </ListItem>
+            </a>
+            <a
+              href="https://chris023.github.io/swapibox"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.linkTo}
+            >
+              <ListItem button>
+                <ListItemIcon>
+                  <img
+                    className={classes.swapiBoxIcon}
+                    alt="SW"
+                    src="https://raw.githubusercontent.com/chris023/swapibox/master/src/assets/readme/logo.png"
+                  />
+                </ListItemIcon>
+                <ListItemText primary={'SWAPIbox'} />
+              </ListItem>
+            </a>
+          </List>
+        </Drawer>
+        {children}
+      </div>
     </>
   )
 }

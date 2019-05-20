@@ -90,7 +90,7 @@ const Landing = ({ classes }) => {
         style={{ backgroundImage: `url(${coffeeLaptopOnlyImg})` }}
         className={classes.backgroundImage}
       />
-      <Paper square className={classes.root}>
+      <div square className={classes.root}>
         <video playsInline autoPlay muted loop className={classes.bgvid}>
           <source src={bgvid} type="video/webm" />
         </video>
@@ -113,7 +113,7 @@ const Landing = ({ classes }) => {
           </div>
           <div />
         </div>
-      </Paper>
+      </div>
     </>
   )
 }

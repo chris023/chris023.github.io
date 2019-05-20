@@ -8,7 +8,7 @@ const styles = theme => ({
     boxSizing: 'border-box',
     minHeight: '100vh',
     paddingTop: theme.mixins.toolbar.minHeight + 8,
-    paddingLeft: theme.spacing.unit * 7 + 1,
+    paddingLeft: theme.spacing.unit,
   },
 })
 
