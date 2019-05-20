@@ -10,12 +10,13 @@ import {
   ListItemIcon,
   ListItemText,
   Toolbar,
+  Typography,
   withStyles,
 } from '@material-ui/core'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
-import InboxIcon from '@material-ui/icons/MoveToInbox'
-import MailIcon from '@material-ui/icons/Mail'
+import HomeIcon from '@material-ui/icons/Home'
+import LocalMoviesIcon from '@material-ui/icons/LocalMovies'
 import classNames from 'classnames'
 
 const drawerWidth = 240
@@ -37,13 +38,6 @@ const styles = theme => ({
     width: drawerWidth,
     whiteSpace: 'nowrap',
   },
-  drawerOpen: {
-    width: drawerWidth,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
   drawerClose: {
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
@@ -52,12 +46,37 @@ const styles = theme => ({
     overflowX: 'hidden',
     width: theme.spacing.unit * 7 + 1,
   },
+  drawerOpen: {
+    width: drawerWidth,
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  drawerSubtitleVisible: {
+    padding: `${theme.spacing.unit * 1}px ${theme.spacing.unit * 4}px`,
+    transition: theme.transitions.duration.leavingScreen,
+    opacity: 1,
+  },
+  drawerSubtitle: {
+    opacity: 0,
+    transition: theme.transitions.duration.leavingScreen,
+  },
   hide: {
     display: 'none',
+  },
+  linkTo: {
+    textDecoration: 'none',
   },
   menuButton: {
     marginLeft: 5,
     marginRight: 36,
+  },
+  movieTrackerIcon: {
+    color: '#42dbff',
+  },
+  swapiBoxIcon: {
+    width: 24,
   },
   toolbar: {
     display: 'flex',
@@ -112,25 +131,52 @@ const View = ({ classes, children }) => {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Home'} />
+          </ListItem>
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
+          <Typography
+            className={
+              open ? classes.drawerSubtitleVisible : classes.drawerSubtitle
+            }
+            color="textSecondary"
+          >
+            Projects
+          </Typography>
+          <a
+            href="https://chris023.github.io/movie-tracker-frontend"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={classes.linkTo}
+          >
+            <ListItem button>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                <LocalMoviesIcon className={classes.movieTrackerIcon} />
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={'Movie Tracker'} />
             </ListItem>
-          ))}
+          </a>
+          <a
+            href="https://chris023.github.io/swapibox"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={classes.linkTo}
+          >
+            <ListItem button>
+              <ListItemIcon>
+                <img
+                  className={classes.swapiBoxIcon}
+                  src="https://raw.githubusercontent.com/chris023/swapibox/master/src/assets/readme/logo.png"
+                />
+              </ListItemIcon>
+              <ListItemText primary={'SWAPIbox'} />
+            </ListItem>
+          </a>
         </List>
       </Drawer>
       {children}
