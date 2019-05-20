@@ -17,7 +17,10 @@ import {
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import HomeIcon from '@material-ui/icons/Home'
+import PersonIcon from '@material-ui/icons/Person'
 import classNames from 'classnames'
+import LinkedInIcon from '../assets/img/In-White-96.png'
+import GithubIcon from '../assets/img/GitHub-Mark-Light-64px.png'
 import { movietracker, swapibox } from '../util/projects'
 
 const drawerWidth = 240
@@ -32,6 +35,13 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+  },
+  customIconContainer: {
+    alignItems: 'center',
+    display: 'flex',
+    height: 24,
+    justifyContent: 'center',
+    width: 24,
   },
   content: {
     display: 'flex',
@@ -63,6 +73,7 @@ const styles = theme => ({
     opacity: 1,
   },
   drawerSubtitle: {
+    display: 'none',
     opacity: 0,
     transition: theme.transitions.duration.leavingScreen,
   },
@@ -79,15 +90,19 @@ const styles = theme => ({
     marginLeft: 5,
     marginRight: 36,
   },
-  movieTrackerIcon: {
-    color: '#42dbff',
-  },
   toolbar: {
+    backgroundColor: theme.palette.primary.main,
+  },
+  toolbarContainer: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: '0 8px',
     ...theme.mixins.toolbar,
+    backgroundColor: theme.palette.primary.main,
+  },
+  toolbarBackground: {
+    backgroundColor: theme.palette.primary.light,
   },
 })
 
@@ -102,7 +117,7 @@ const View = ({ classes, children, open, setOpen }) => {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar disableGutters={!open}>
+        <Toolbar disableGutters={!open} className={classes.toolbar}>
           <IconButton
             onClick={toggleDrawer}
             className={classNames(classes.menuButton, {
@@ -128,21 +143,88 @@ const View = ({ classes, children, open, setOpen }) => {
           variant="permanent"
           open={open}
         >
-          <div className={classes.toolbar}>
+          <div
+            className={classNames(
+              classes.toolbarContainer,
+              classes.toolbarBackground
+            )}
+          >
             <IconButton onClick={toggleDrawer}>
               <ChevronLeftIcon />
             </IconButton>
           </div>
-          <Divider />
           <List>
-            <Link to="/home" className={classes.linkTo}>
-              <ListItem button>
-                <ListItemIcon>
-                  <HomeIcon />
-                </ListItemIcon>
-                <ListItemText primary={'Home'} />
-              </ListItem>
-            </Link>
+            <Typography
+              className={
+                open ? classes.drawerSubtitleVisible : classes.drawerSubtitle
+              }
+              color="textSecondary"
+            >
+              Links
+            </Typography>
+            {['Home', 'About Me'].map((title, i) => (
+              <Link
+                to={`/${title
+                  .toLowerCase()
+                  .split(' ')
+                  .join('')}`}
+                className={classes.linkTo}
+                key={title + i}
+              >
+                <ListItem button>
+                  <ListItemIcon>
+                    <>
+                      {i === 0 ? <HomeIcon /> : null}
+                      {i === 1 ? <PersonIcon /> : null}
+                    </>
+                  </ListItemIcon>
+                  <ListItemText primary={title} />
+                </ListItem>
+              </Link>
+            ))}
+            {[
+              {
+                title: 'LinkedIn',
+                link: 'https://www.linkedin.com/in/chris023/',
+                icon: LinkedInIcon,
+                alt: 'In',
+              },
+              {
+                title: 'Github',
+                link: 'https://www.github.com/chris023/',
+                icon: GithubIcon,
+                alt: 'Gh',
+              },
+            ].map(item => (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classes.linkTo}
+                key={item.title}
+              >
+                <ListItem button>
+                  <ListItemIcon>
+                    <div className={classes.customIconContainer}>
+                      <img
+                        src={item.icon}
+                        alt={item.alt}
+                        style={{ width: 16 }}
+                      />
+                    </div>
+                  </ListItemIcon>
+                  <ListItemText primary={item.title} />
+                </ListItem>
+              </a>
+            ))}
+            <Typography
+              className={
+                open ? classes.drawerSubtitleVisible : classes.drawerSubtitle
+              }
+              color="textSecondary"
+            >
+              {' '}
+            </Typography>
           </List>
           <Divider />
           <List>
@@ -169,6 +251,7 @@ const View = ({ classes, children, open, setOpen }) => {
               </a>
             ))}
           </List>
+          <Divider />
         </Drawer>
         {children}
       </div>
