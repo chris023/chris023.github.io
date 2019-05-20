@@ -16,8 +16,8 @@ import {
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import HomeIcon from '@material-ui/icons/Home'
-import LocalMoviesIcon from '@material-ui/icons/LocalMovies'
 import classNames from 'classnames'
+import { movietracker, swapibox } from '../util/projects'
 
 const drawerWidth = 240
 const styles = theme => ({
@@ -78,9 +78,6 @@ const styles = theme => ({
   movieTrackerIcon: {
     color: '#42dbff',
   },
-  swapiBoxIcon: {
-    width: 24,
-  },
   toolbar: {
     display: 'flex',
     alignItems: 'center',
@@ -134,12 +131,14 @@ const View = ({ classes, children, open, setOpen }) => {
           </div>
           <Divider />
           <List>
-            <ListItem button>
-              <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
-              <ListItemText primary={'Home'} />
-            </ListItem>
+            <Link to="/home" className={classes.linkTo}>
+              <ListItem button>
+                <ListItemIcon>
+                  <HomeIcon />
+                </ListItemIcon>
+                <ListItemText primary={'Home'} />
+              </ListItem>
+            </Link>
           </List>
           <Divider />
           <List>
@@ -151,36 +150,20 @@ const View = ({ classes, children, open, setOpen }) => {
             >
               Projects
             </Typography>
-            <a
-              href="https://chris023.github.io/movie-tracker-frontend"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={classes.linkTo}
-            >
-              <ListItem button>
-                <ListItemIcon>
-                  <LocalMoviesIcon className={classes.movieTrackerIcon} />
-                </ListItemIcon>
-                <ListItemText primary={'Movie Tracker'} />
-              </ListItem>
-            </a>
-            <a
-              href="https://chris023.github.io/swapibox"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={classes.linkTo}
-            >
-              <ListItem button>
-                <ListItemIcon>
-                  <img
-                    className={classes.swapiBoxIcon}
-                    alt="SW"
-                    src="https://raw.githubusercontent.com/chris023/swapibox/master/src/assets/readme/logo.png"
-                  />
-                </ListItemIcon>
-                <ListItemText primary={'SWAPIbox'} />
-              </ListItem>
-            </a>
+            {[movietracker, swapibox].map(project => (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classes.linkTo}
+                key={project.name}
+              >
+                <ListItem button>
+                  <ListItemIcon>{project.icon}</ListItemIcon>
+                  <ListItemText primary={project.name} />
+                </ListItem>
+              </a>
+            ))}
           </List>
         </Drawer>
         {children}
